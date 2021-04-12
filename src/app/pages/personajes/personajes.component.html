@@ -1,0 +1,45 @@
+
+
+<div style="background-size: 100%; background-image: url(https://image.freepik.com/vector-gratis/fondo-espacio-estrellas-ilustracion-vectorial_97886-319.jpg);"> <!--style="background-color: rgb(66, 245, 11);" -->
+
+    <div style="text-align: center;">
+        <img src="https://upload.wikimedia.org/wikipedia/en/c/c8/Rick_and_Morty_logo.png">
+    </div>
+
+    <div class="container">
+        
+        <div style="color:rgb(45, 238, 222); text-align: center;" >
+            <h1>Total de personajes: {{myApiResponseData.info.count}}</h1>
+        </div>
+
+        <div *ngFor="let Personaje of myApiResponseData.results">
+
+            <div class="row">  
+            
+                <div class="col-4">
+                <img [src]="Personaje.image">
+                </div>
+            
+                <div class="col-6" style="color: rgb(28, 247, 236);">
+                    <h2>Personaje:{{Personaje.name}}</h2>
+                    <h3>Especie:{{Personaje.species}}</h3>
+                    <h3>Estatus:{{Personaje.status}}</h3>
+                    <h3>Origen:{{Personaje.origin.name}}</h3>
+                    <h3>Genero:{{Personaje.gender}}</h3>
+                </div>
+
+            </div>
+            
+        </div>
+
+        <h2 style="text-align: center;">
+            <button *ngIf="myApiResponseData.info.prev" (click)="previus()" class="btn-info"><--</button>
+            <button *ngIf="myApiResponseData.info.next" (click)="next()" class="btn-info">--></button>
+        </h2>
+
+    </div>
+
+</div>
+
+
+
